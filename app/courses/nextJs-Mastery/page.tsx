@@ -27,6 +27,7 @@ const { data: completedLessons } =
     .eq("course_id", 3)
     .eq("completed", true);
 
+
 const uniqueLessons = new Set(
   completedLessons?.map(
     (lesson) => lesson.lesson_id

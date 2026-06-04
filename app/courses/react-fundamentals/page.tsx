@@ -9,8 +9,8 @@ export default async function ReactFundamentals() {
   const {data :course , error} = await supabase.
   from("courses")
   .select("*")
-  .limit(1)
-  .maybeSingle();
+  .eq("slug", "react-fundamentals")
+  .single();
   if(error){
     return <div>Error:{error.message}</div>
   }
@@ -25,8 +25,9 @@ const { data: completedLessons } =
   await supabase
     .from("user_progress")
     .select("lesson_id")
-    .eq("course_id", 1)
+    .eq("course_id", course.id)
     .eq("completed", true);
+
 
 const uniqueLessons = new Set(
   completedLessons?.map(
