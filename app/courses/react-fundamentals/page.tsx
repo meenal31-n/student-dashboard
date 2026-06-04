@@ -9,7 +9,7 @@ export default async function ReactFundamentals() {
   const {data :course , error} = await supabase.
   from("courses")
   .select("*")
-  .eq("slug", "react-fundamentals")
+  .eq("id", 1)
   .single();
   if(error){
     return <div>Error:{error.message}</div>
