@@ -1,10 +1,11 @@
 import { Flame } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { supabase } from "@/supabase";
+import { createSupabaseServer } from "@/lib/supabaseServer";
 
 export default async function Courses() {
   // React Progress
+  const supabase = createSupabaseServer();
   const { data: reactData } = await supabase
     .from("user_progress")
     .select("lesson_id")
